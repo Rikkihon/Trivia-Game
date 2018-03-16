@@ -1,4 +1,3 @@
-<!-- Lottery Generator HTML -->
 
 <!DOCTYPE html>
 
@@ -7,12 +6,8 @@
   <head>
 
     <meta charset="UTF-8">
-    <title>Lottery Generator</title>
-
-    <!-- Added link to the jQuery Library -->
+    <title>Trivia Game</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   </head>
@@ -20,11 +15,8 @@
   <body>
 
     <div class="jumbotron">
-
-      <h1 class="text-center">Generate Lottery Numbers!</h1>
-
+      <h1 class="text-center">Let's Play Trivia!</h1>
       <div class="text-center">
-
         <!-- Here we have our button with id random-button -->
         <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button>
 
@@ -34,12 +26,10 @@
 
     <!-- Here we have the div where our number will go called random-number -->
     <h1 class="text-center" id="random-number"></h1>
+    <h1 class="text-center" id="trivia-question"></h1>
+    <h2 class="time-left" id="time-left"></h2>
 
-    <!-- Script -->
     <script type="text/javascript">
-
-    // Lottery Generator JavaScript
-    // =====================================
 
     // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
     $(document).ready(function() {
@@ -49,6 +39,7 @@
 
         // ...create a string which will hold the lottery number.
         var lottoNumber = "";
+        var triviaGame = "";
 
         // Then create a loop that generates 9 separate numbers.
         for (var i = 0; i < 9; i++) {
@@ -60,8 +51,57 @@
 
         // Then prepend the lotto number to the top of our random-number div.
         $("#random-number").prepend("<br><hr>" + lottoNumber);
+        $("#random-number").prepend("<br><hr>" + triviaGame);
       });
     });
+
+
+    //  Simple Timer Solution
+
+//  Step 1:
+//  Use the following link inside the Audio function below:
+//  https://p.scdn.co/mp3-preview/ed5a443bc86176135ebca8a114f66f4d814d4c90
+var audio = new Audio("raven.mp3");
+
+//  Step 2:
+//  after 5 seconds, execute the fiveSeconds function
+//  after 10 seconds, execute the tenSeconds function
+//  after 15 seconds, execute the timeUp function
+
+setTimeout(fiveSeconds, 1000 * 5);
+setTimeout(tenSeconds, 1000 * 10);
+setTimeout(timeUp, 1000 * 15);
+
+//  Step 3:
+//  Fill in the blanks to these functions.
+function fiveSeconds() {
+
+  // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
+  // console log 10 seconds left
+  $("#time-left").append("<h2>About 10 Seconds Left!</h2>");
+  console.log("10 seconds left");
+}
+
+function tenSeconds() {
+
+  // in the element with an id of time-left add an h2 saying About 5 Seconds Left!
+  // console log 5 seconds left
+  $("#time-left").append("<h2>About 5 Seconds Left!</h2>");
+  console.log("5 seconds left");
+}
+
+function timeUp() {
+
+  // in the element with an id of time-left add an h2 saying Time's Up!
+  // console log done
+  console.log("done");
+  $("#time-left").append("<h2>Time's Up!</h2>");
+  console.log("time is up");
+
+  //  The following line will play the audio file we linked to above:
+  audio.play();
+}
+
 
     </script>
 
