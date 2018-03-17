@@ -27,6 +27,7 @@
     <!-- Here we have the div where our number will go called random-number -->
     <h1 class="text-center" id="random-number"></h1>
     <h1 class="text-center" id="trivia-question"></h1>
+    <h2 class="text-center" id="trivia-answer"></h2>
     <h2 class="time-left" id="time-left"></h2>
 
     <script type="text/javascript">
@@ -37,16 +38,61 @@
       // When random-button is clicked...
       $("#random-button").on("click", function() {
 
-        // ...create a string which will hold the lottery number.
+        // ...create a string which will hold the trivia question.
         var lottoNumber = "";
         var triviaGame = "";
+        var question = "";
+	      var answer = false;
+        var arrayOfQuestions = [];
 
-        // Then create a loop that generates 9 separate numbers.
-        for (var i = 0; i < 9; i++) {
-          var random = Math.floor(Math.random() * 9) + 1;
+/*blah blah blah */
+var arrGyBlargh = [];
+arrGyBlargh.push({question:"who did this thing?", correctAnswer:"Some guy", incorrectAnswer1:"Some other guy",});
+
+arrGyBlargh[my fancy random number generator]
+/*asdsdghjksjdhgklajslhdga*/
+
+arrayofQuestion.push({"Who Invented Taxnomic Nomenclature ?",correctAnswer:"Linneaus", incorrectAnswer: "Darwin", incorrectAnswer2: "Mendel", incorrectAnswer3: "Lueck",});
+
+var question = {
+question: "Who Invented Taxnomic Nomenclature ?",
+correctAnswer:"Linneaus", 
+incorrectAnswer: "Darwin", 
+incorrectAnswer2: "Mendel",
+incorrectAnswer3: "Lueck",}
+
+
+var question = {
+question: "Who Invented Taxnomic Nomenclature ?",
+correctAnswer:"Linneaus", 
+incorrectAnswer: "Darwin", 
+incorrectAnswer2: "Mendel",
+incorrectAnswer3: "Lueck",}
+
+
+var question = {
+question: "Who Invented Taxnomic Nomenclature ?",
+correctAnswer:"Linneaus", 
+incorrectAnswer: "Darwin", 
+incorrectAnswer2: "Mendel",
+incorrectAnswer3: "Lueck",}
+
+
+
+   arr.push(new triviaGame("Does a frog have six toes?",false));
+
+         ["Who Invented Taxnomic Nomenclature ?", "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", "How many book 'point of view' chapters does Tyrion from A Song of Ice and Fire Have? ", "On Which South Pacific country is there a Pearl Museum, devoted entirely to pearls?", "The Hawaiian Islands had a different name given to them by James Cook. He named them after an Earl in the British Navy. What were the islands originally named?", "The book 'Siddhartha' takes place in which modern-day country?"]
+  "Question ", "New Question", "Another New Question", "Another New Question", "Another New Question", "Yet Another Question"];
+        Question.Answer: 
+        Question.realAnswer: 
+        // Then create a loop that generates the questions.
+    
+          triviaGame = Question[Math.floor(Math.random() * triviaGame.length)]
+
 
           // Add to the lottery number.
           lottoNumber = random + lottoNumber;
+          triviaGame = random + triviaGame;
         }
 
         // Then prepend the lotto number to the top of our random-number div.
@@ -56,20 +102,16 @@
     });
 
 
-    //  Simple Timer Solution
-
 //  Step 1:
 //  Use the following link inside the Audio function below:
 //  https://p.scdn.co/mp3-preview/ed5a443bc86176135ebca8a114f66f4d814d4c90
 var audio = new Audio("raven.mp3");
 
 //  Step 2:
-//  after 5 seconds, execute the fiveSeconds function
 //  after 10 seconds, execute the tenSeconds function
 //  after 15 seconds, execute the timeUp function
 
-setTimeout(fiveSeconds, 1000 * 5);
-setTimeout(tenSeconds, 1000 * 10);
+setTimeout(tenSeconds, 1000 * 30);
 setTimeout(timeUp, 1000 * 15);
 
 //  Step 3:
@@ -78,8 +120,8 @@ function fiveSeconds() {
 
   // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
   // console log 10 seconds left
-  $("#time-left").append("<h2>About 10 Seconds Left!</h2>");
-  console.log("10 seconds left");
+  $("#time-left").append("<h2>About 30 Seconds Left!</h2>");
+  console.log("30 seconds left");
 }
 
 function tenSeconds() {
@@ -98,8 +140,6 @@ function timeUp() {
   $("#time-left").append("<h2>Time's Up!</h2>");
   console.log("time is up");
 
-  //  The following line will play the audio file we linked to above:
-  audio.play();
 }
 
 
