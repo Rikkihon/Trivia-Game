@@ -28,10 +28,11 @@
     <h1 class="text-center" id="random-number"></h1>
     <h1 class="text-center" id="trivia-question"></h1>
     <h2 class="text-center" id="trivia-answer"></h2>
-    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>A</button>
-    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>B</button>
-    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>C</button>
-    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>D</button>
+    <h2 class="text-center" id="time-left">Your Timer Begins Now. You have 3 minutes to complete</h2>
+    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>A</button>
+    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>B</button>
+    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>C</button>
+    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>D</button>
     <h2 class="time-left" id="time-left"></h2>
 
     <script type="text/javascript">
@@ -64,6 +65,12 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
         $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer);
         $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer2);
         $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer3);
+
+         $("#answer-button").on("click", function() {
+           //do some stuff here to describe if the answer is correct or not correct in a boolean
+
+
+         });
         });
     });
 
