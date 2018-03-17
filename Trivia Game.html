@@ -37,71 +37,29 @@
 
       // When random-button is clicked...
       $("#random-button").on("click", function() {
-
         // ...create a string which will hold the trivia question.
         var lottoNumber = "";
         var triviaGame = "";
         var question = "";
-	      var answer = false;
-        var arrayOfQuestions = [];
+        var arrayofQuestions = [];
 
-/*blah blah blah */
-var arrGyBlargh = [];
-arrGyBlargh.push({question:"who did this thing?", correctAnswer:"Some guy", incorrectAnswer1:"Some other guy",});
-
-arrGyBlargh[my fancy random number generator]
-/*asdsdghjksjdhgklajslhdga*/
-
-arrayofQuestion.push({"Who Invented Taxnomic Nomenclature ?",correctAnswer:"Linneaus", incorrectAnswer: "Darwin", incorrectAnswer2: "Mendel", incorrectAnswer3: "Lueck",});
-
-var question = {
-question: "Who Invented Taxnomic Nomenclature ?",
-correctAnswer:"Linneaus", 
-incorrectAnswer: "Darwin", 
-incorrectAnswer2: "Mendel",
-incorrectAnswer3: "Lueck",}
-
-
-var question = {
-question: "Who Invented Taxnomic Nomenclature ?",
-correctAnswer:"Linneaus", 
-incorrectAnswer: "Darwin", 
-incorrectAnswer2: "Mendel",
-incorrectAnswer3: "Lueck",}
-
-
-var question = {
-question: "Who Invented Taxnomic Nomenclature ?",
-correctAnswer:"Linneaus", 
-incorrectAnswer: "Darwin", 
-incorrectAnswer2: "Mendel",
-incorrectAnswer3: "Lueck",}
-
-
-
-   arr.push(new triviaGame("Does a frog have six toes?",false));
-
-         ["Who Invented Taxnomic Nomenclature ?", "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", "How many book 'point of view' chapters does Tyrion from A Song of Ice and Fire Have? ", "On Which South Pacific country is there a Pearl Museum, devoted entirely to pearls?", "The Hawaiian Islands had a different name given to them by James Cook. He named them after an Earl in the British Navy. What were the islands originally named?", "The book 'Siddhartha' takes place in which modern-day country?"]
-  "Question ", "New Question", "Another New Question", "Another New Question", "Another New Question", "Yet Another Question"];
-        Question.Answer: 
-        Question.realAnswer: 
-        // Then create a loop that generates the questions.
-    
-          triviaGame = Question[Math.floor(Math.random() * triviaGame.length)]
-
-
-          // Add to the lottery number.
-          lottoNumber = random + lottoNumber;
-          triviaGame = random + triviaGame;
-        }
+arrayofQuestions.push({question:"Who Invented Taxnomic Nomenclature ?", correctAnswer:"Linneaus", incorrectAnswer: "Darwin", incorrectAnswer2: "Mendel", incorrectAnswer3: "Lueck",});
+arrayofQuestions.push({question: "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", correctAnswer: "Oscar Wilde", incorrectAnswer:"James Joyce",  incorrctAnswer3: "Jonathan Swift",  incorrectAnswer4: "Samuel L Beckett"})
+arrayofQuestions.push({question: "How many book 'point of view' chapters does Tyrion from A Song of Ice and Fire Have? ", correctAnswer: "38", incorrectAnswer: "0", incorrectAnswer2: "10", incorrectAnswer3: "30"})
+arrayofQuestions.push({question: "On Which South Pacific country is there a Pearl Museum, devoted entirely to pearls?", correctAnswer: "Tahiti", incorrectAnswer: "Hawaii", incorrectAnswer2: "Indonesia", incorrectAnswer3: "Maldives"})
+arrayofQuestions.push({question: "The Hawaiian Islands had a different name given to them by James Cook. He named them after an Earl in the British Navy. What were the islands originally named?", correctAnswer: "Hawaiian Islands", incorrectAnswer: "Japan", incorrectAnswer2: "Marshall Islands", incorrctAnswer3: "Philippines"});         
+arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which modern-day country?", correctAnswer: "Nepal", incorrectAnswer: "Tibet", incorrectAnswer2: "India", incorrectAnswer3: "Japan"});
+        // This will randomly pick a question
+          triviaGame = arrayofQuestions[Math.floor(Math.random() * arrayofQuestions.length)];
+          console.log(triviaGame);
 
         // Then prepend the lotto number to the top of our random-number div.
-        $("#random-number").prepend("<br><hr>" + lottoNumber);
-        $("#random-number").prepend("<br><hr>" + triviaGame);
-      });
+        // $("#random-number").prepend("<br><hr>" + lottoNumber);
+        //$(".trivia-question").prepend("<br><hr>" + triviaGame);
+        });
     });
 
-
+/*
 //  Step 1:
 //  Use the following link inside the Audio function below:
 //  https://p.scdn.co/mp3-preview/ed5a443bc86176135ebca8a114f66f4d814d4c90
@@ -141,7 +99,7 @@ function timeUp() {
   console.log("time is up");
 
 }
-
+*/
 
     </script>
 
