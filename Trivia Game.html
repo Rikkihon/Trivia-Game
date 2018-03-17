@@ -28,17 +28,20 @@
     <h1 class="text-center" id="random-number"></h1>
     <h1 class="text-center" id="trivia-question"></h1>
     <h2 class="text-center" id="trivia-answer"></h2>
+    <h2 class="text-center" id="Score">Your Score</h2>
     <h2 class="text-center" id="time-left">Your Timer Begins Now. You have 3 minutes to complete</h2>
+
     <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>A</button>
     <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>B</button>
     <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>C</button>
     <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>D</button>
-    <h2 class="time-left" id="time-left"></h2>
-
+    
     <script type="text/javascript">
-
+       
+      
     // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
     $(document).ready(function() {
+      
 
       // When random-button is clicked...
       $("#random-button").on("click", function() {
@@ -47,6 +50,12 @@
         var triviaGame = "";
         var question = "";
         var arrayofQuestions = [];
+
+        function timeUp () {
+        setTimeout(timeUp, 1000 * 15);
+        $("#time-left").append("<h2>About X Seconds Left!</h2>");
+        console.log("time is up");
+      }
 
 arrayofQuestions.push({question:"Who Invented Taxnomic Nomenclature ?", correctAnswer:"Linneaus", incorrectAnswer: "Darwin", incorrectAnswer2: "Mendel", incorrectAnswer3: "Lueck",});
 arrayofQuestions.push({question: "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", correctAnswer:"Oscar Wilde", incorrectAnswer:"James Joyce",  incorrectAnswer2:"Jonathan Swift",  incorrectAnswer3:"Samuel L Beckett"})
@@ -68,49 +77,13 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
 
          $("#answer-button").on("click", function() {
            //do some stuff here to describe if the answer is correct or not correct in a boolean
-
-
-         });
+        //   if correctAnswer.OnClick = true;{ score ++
+        //   } else if 
+        //     {score}
+        //     return score; 
+        //  });
         });
     });
-
-/*
-
-//  Step 2:
-//  after 10 seconds, execute the tenSeconds function
-//  after 15 seconds, execute the timeUp function
-
-setTimeout(tenSeconds, 1000 * 30);
-setTimeout(timeUp, 1000 * 15);
-
-//  Step 3:
-//  Fill in the blanks to these functions.
-function fiveSeconds() {
-
-  // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
-  // console log 10 seconds left
-  $("#time-left").append("<h2>About 30 Seconds Left!</h2>");
-  console.log("30 seconds left");
-}
-
-function tenSeconds() {
-
-  // in the element with an id of time-left add an h2 saying About 5 Seconds Left!
-  // console log 5 seconds left
-  $("#time-left").append("<h2>About 5 Seconds Left!</h2>");
-  console.log("5 seconds left");
-}
-
-function timeUp() {
-
-  // in the element with an id of time-left add an h2 saying Time's Up!
-  // console log done
-  console.log("done");
-  $("#time-left").append("<h2>Time's Up!</h2>");
-  console.log("time is up");
-
-}
-*/
 
     </script>
 
