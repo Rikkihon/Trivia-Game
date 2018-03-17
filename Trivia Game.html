@@ -18,7 +18,7 @@
       <h1 class="text-center">Let's Play Trivia!</h1>
       <div class="text-center">
         <!-- Here we have our button with id random-button -->
-        <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button>
+        <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>Start!</button>
 
       </div>
 
@@ -28,6 +28,10 @@
     <h1 class="text-center" id="random-number"></h1>
     <h1 class="text-center" id="trivia-question"></h1>
     <h2 class="text-center" id="trivia-answer"></h2>
+    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>A</button>
+    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>B</button>
+    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>C</button>
+    <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>D</button>
     <h2 class="time-left" id="time-left"></h2>
 
     <script type="text/javascript">
@@ -55,15 +59,15 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
 
         // Then prepend the lotto number to the top of our random-number div.
         // $("#random-number").prepend("<br><hr>" + lottoNumber);
-        //$(".trivia-question").prepend("<br><hr>" + triviaGame);
+        $("#trivia-question").prepend("<br><hr>" + triviaGame.question);
+        $("#trivia-answer").prepend("<br><hr>" + triviaGame.correctAnswer);
+        $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer);
+        $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer2);
+        $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer3);
         });
     });
 
 /*
-//  Step 1:
-//  Use the following link inside the Audio function below:
-//  https://p.scdn.co/mp3-preview/ed5a443bc86176135ebca8a114f66f4d814d4c90
-var audio = new Audio("raven.mp3");
 
 //  Step 2:
 //  after 10 seconds, execute the tenSeconds function
