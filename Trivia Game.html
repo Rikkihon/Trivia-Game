@@ -18,43 +18,32 @@
       <h1 class="text-center">Let's Play Trivia!</h1>
       <div class="text-center">
         <!-- Here we have our button with id random-button -->
-        <button class="btn btn-primary btn-lg" id="random-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>Start!</button>
+        <button class="btn btn-primary btn-lg" id="start-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>Start!</button>
 
       </div>
 
     </div>
-
-    <!-- Here we have the div where our number will go called random-number -->
-    <h1 class="text-center" id="random-number"></h1>
+    <!-- Here we have the div where our questions will go called random-number -->
     <h1 class="text-center" id="trivia-question"></h1>
     <h2 class="text-center" id="trivia-answer"></h2>
     <h2 class="text-center" id="Score">Your Score</h2>
     <h2 class="text-center" id="time-left">Your Timer Begins Now. You have 3 minutes to complete</h2>
-
-    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>A</button>
-    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>B</button>
-    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>C</button>
-    <button class="btn btn-primary btn-lg" id="answer-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>D</button>
-    
     <script type="text/javascript">
-       
       
     // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
     $(document).ready(function() {
       
-
       // When random-button is clicked...
-      $("#random-button").on("click", function() {
+      $("#start-button").on("click", function() {
         // ...create a string which will hold the trivia question.
-        var lottoNumber = "";
         var triviaGame = "";
         var question = "";
         var arrayofQuestions = [];
 
+        setTimeout(timeUp, 180 * 1000); // 3 minutes
+        
         function timeUp () {
-        setTimeout(timeUp, 1000 * 15);
-        $("#time-left").append("<h2>About X Seconds Left!</h2>");
-        console.log("time is up");
+        $("#time-left").append("<h2>Timer Has Ended</h2>");
       }
 
 arrayofQuestions.push({question:"Who Invented Taxnomic Nomenclature ?", correctAnswer:"Linneaus", incorrectAnswer: "Darwin", incorrectAnswer2: "Mendel", incorrectAnswer3: "Lueck",});
@@ -67,26 +56,55 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
           triviaGame = arrayofQuestions[Math.floor(Math.random() * arrayofQuestions.length)];
           console.log(triviaGame);
 
-        // Then prepend the lotto number to the top of our random-number div.
-        // $("#random-number").prepend("<br><hr>" + lottoNumber);
-        $("#trivia-question").prepend("<br><hr>" + triviaGame.question);
-        $("#trivia-answer").prepend("<br><hr>" + triviaGame.correctAnswer);
-        $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer);
-        $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer2);
-        $("#trivia-answer").prepend("<br><hr>" + triviaGame.incorrectAnswer3);
+        // Then prepend the trivia question to the top of our display answer div.
+    
+        $("#trivia-question").prepend("<br><button></button><hr>" + triviaGame.question);
+        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.correctAnswer);
+        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer);
+        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer2);
+        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer3);
 
-         $("#answer-button").on("click", function() {
-           //do some stuff here to describe if the answer is correct or not correct in a boolean
+        // When random-button is clicked...
+// $("#answer-button").on("click", function() {}
+
+ for (var i = 0; i <= arrayofQuestions.length; i++) {
+// Then dynamically generating buttons for each item in the array
+// This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+var answerButton = $("<button>");
+// Adding a class of movie to our button
+answerButton.addClass("btn btn-primary btn-sm");
+// Adding a span
+answerButton.html('<span class="glyphicon glyphicon-question-sign"></span>');
+// Providing the initial button text
+// Adding the button to the buttons-view div
+$("#trivia-answer").append(answerButton);
+
+$("#trivia-answer").on("click", function() {
+          var score = 0;
+          score + 10; 
         //   if correctAnswer.OnClick = true;{ score ++
-        //   } else if 
-        //     {score}
-        //     return score; 
-        //  });
+          $("#score").append(score);
+        
+         });
+
+}
+});
+       
         });
-    });
+    // });
 
     </script>
 
   </body>
 
 </html>
+
+
+
+
+// <!-- 
+//          $("#trivia-answer").on("click", function(event) {
+//     // Preventing the button from trying to submit the form
+//     event.preventDefault();
+//           -->
+  
