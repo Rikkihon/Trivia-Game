@@ -27,111 +27,14 @@
     </div>
     <!-- Here we have the div where our questions will go called trivia question -->
     <h1 class="text-center" id="trivia-question"></h1>
-    <h2 class="text-center" id="trivia-answer"></h2>
+    <h2 class="text-center" id="trivia-answer0"></h2>
     <h2 class="text-center" id="trivia-answer1"></h2>
     <h2 class="text-center" id="trivia-answer2"></h2>
     <h2 class="text-center" id="trivia-answer3"></h2>
   </div>
-    <script type="text/javascript">
-      
-    // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
-    $(document).ready(function() {
     
-      // When random-button is clicked...
-      $("#start-button").on("click", function() {
-        // ...create a string which will hold the trivia question.
-        var triviaGame = "";
-        var question = "";
-        var arrayofQuestions = [];
-        var score = 0;
-        console.log(score);
-        setTimeout(timeUp, 180 * 1000); // 3 minutes
-        
-        function timeUp () {
-        $("#time-left").append("<h2>Timer Has Ended</h2>");
-      }
-
-arrayofQuestions.push({question:"Who Invented Taxnomic Nomenclature ?", correctAnswer:"Linneaus", incorrectAnswer: "Darwin", incorrectAnswer2: "Mendel", incorrectAnswer3: "Lueck",});
-arrayofQuestions.push({question: "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", correctAnswer:"Oscar Wilde", incorrectAnswer:"James Joyce",  incorrectAnswer2:"Jonathan Swift",  incorrectAnswer3:"Samuel L Beckett"})
-arrayofQuestions.push({question: "How many book 'point of view' chapters does Tyrion from A Song of Ice and Fire Have? ", correctAnswer: "38", incorrectAnswer: "0", incorrectAnswer2:"10", incorrectAnswer3: "30"})
-arrayofQuestions.push({question: "On Which South Pacific country is there a Pearl Museum, devoted entirely to pearls?", correctAnswer:"Tahiti", incorrectAnswer: "Hawaii", incorrectAnswer2:"Indonesia", incorrectAnswer3: "Maldives"})
-arrayofQuestions.push({question: "The Hawaiian Islands had a different name given to them by James Cook. He named them after an Earl in the British Navy. What were the islands originally named?", correctAnswer: "Hawaiian Islands", incorrectAnswer: "Nippon", incorrectAnswer2: "Marshall Islands", incorrectAnswer3: "Philippines"});         
-arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which modern-day country?", correctAnswer:"Nepal", incorrectAnswer:"Tibet", incorrectAnswer2:"India", incorrectAnswer3:"Japan"});
-        // This will randomly pick a question
-          triviaGame = arrayofQuestions[Math.floor(Math.random() * arrayofQuestions.length)];
-          console.log(triviaGame);
-
-        // Then prepend the trivia question to the top of our display answer div.
-    
-        $("#trivia-question").prepend("<br><hr>" + triviaGame.question);
-        $("#trivia-answer1").prepend("<br><hr>");
-        $("#trivia-answer2").prepend("<br><hr>") //+ triviaGame.incorrectAnswer);
-        $("#trivia-answer3").prepend("<br><hr>") //+ triviaGame.incorrectAnswer2);
-        $("#trivia-answer4").prepend("<br><hr>") //+ triviaGame.incorrectAnswer3);
-
- for (var i = 0; i < 2; i++) {
-// Then dynamically generating buttons for each item in the array
-// This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-var answerButton = $("<button>");
-var answerButton1 = $("<button>");
-var answerButton2 = $("<button>");
-var answerButton3 = $("<button>");
-// Adding a class to button
-answerButton.addClass("btn btn-primary btn-sm");
-answerButton.attr('id', 'answer-button');
-answerButton1.addClass("btn btn-primary btn-sm");
-answerButton1.attr('id', 'answer-button1');
-answerButton2.addClass("btn btn-primary btn-sm");
-answerButton2.attr('id', 'answer-button2');
-answerButton3.addClass("btn btn-primary btn-sm");
-answerButton3.attr('id', 'answer-button3');
-
-answerButton.html(triviaGame.correctAnswer);
-answerButton1.html(triviaGame.incorrectAnswer1);
-answerButton2.html(triviaGame.incorrectAnswer2);
-answerButton3.html(triviaGame.incorrectAnswer3);
-}
-// Providing the initial button text
-// Adding the button to the buttons-view div
-$("#trivia-answer").prepend(answerButton);
-$("#trivia-answer1").prepend(answerButton1);
-$("#trivia-answer2").prepend(answerButton2);
-$("#trivia-answer3").prepend(answerButton3);
-
-$(document).ready(function() {
-$("#answer-button").on("click", function() {
-          var score = 0;
-          score + 10; 
-          console.log(score)
-        //   if correctAnswer.OnClick = true;{ score ++
-            $("#score").append(score);
-
-            $(document).ready(function(){
-            $("#answer-button1").on("click", function() {
-              
-            $("#trivia-question").append("incorrect, press for next question")
-              console.log("incorrectAnswer");
-            });
-              $(document).ready(function(){
-            $("#answer-button2").on("click", function(){
-              $("#trivia-question").append("incorrect, press for next question")
-              console.log("incorrectAnswer");
-            });
-              $(document).ready(function(){
-            $("#answer-button3").on("click", function() {
-              $("#trivia-question").append("incorrect, press for next question")
-              console.log("incorrectAnswer");
-            });
-          });
-        });
-      });        
-        });
-      });
-});
- });
-   
-
-    </script>
+    <script src="./javascript/app.js"></script>
+  
 
   </body>
 
@@ -139,10 +42,3 @@ $("#answer-button").on("click", function() {
 
 
 
-
-// <!-- 
-//          $("#trivia-answer").on("click", function(event) {
-//     // Preventing the button from trying to submit the form
-//     event.preventDefault();
-//           -->
-  
