@@ -80,11 +80,11 @@ var answerButton3 = $("<button>");
 answerButton.addClass("btn btn-primary btn-sm");
 answerButton.attr('id', 'answer-button');
 answerButton1.addClass("btn btn-primary btn-sm");
-answerButton1.attr('id', 'answer-button');
+answerButton1.attr('id', 'answer-button1');
 answerButton2.addClass("btn btn-primary btn-sm");
-answerButton2.attr('id', 'answer-button');
+answerButton2.attr('id', 'answer-button2');
 answerButton3.addClass("btn btn-primary btn-sm");
-answerButton3.attr('id', 'answer-button');
+answerButton3.attr('id', 'answer-button3');
 
 answerButton.html(triviaGame.correctAnswer);
 answerButton1.html(triviaGame.incorrectAnswer1);
@@ -108,18 +108,19 @@ $("#answer-button").on("click", function() {
 
             $(document).ready(function(){
             $("#answer-button1").on("click", function() {
-              $("#trivia-question").append("incorrect, press for next question")
-              console.log("incorrectAnswer")
+              
+            $("#trivia-question").append("incorrect, press for next question")
+              console.log("incorrectAnswer");
             });
               $(document).ready(function(){
             $("#answer-button2").on("click", function(){
               $("#trivia-question").append("incorrect, press for next question")
-              console.log("incorrectAnswer")
+              console.log("incorrectAnswer");
             });
               $(document).ready(function(){
             $("#answer-button3").on("click", function() {
               $("#trivia-question").append("incorrect, press for next question")
-              console.log("incorrectAnswer")
+              console.log("incorrectAnswer");
             });
           });
         });
