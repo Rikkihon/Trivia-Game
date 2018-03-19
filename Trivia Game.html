@@ -63,13 +63,11 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
 
         // Then prepend the trivia question to the top of our display answer div.
     
-        $("#trivia-question").prepend("<br><button></button><hr>" + triviaGame.question);
-        $("#trivia-answer1").prepend("<br><button></button><hr>" + triviaGame.correctAnswer);
-        $("#trivia-answer2").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer);
-        $("#trivia-answer3").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer2);
-        $("#trivia-answer4").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer3);
-
-// $("#answer-button").on("click", function() {}
+        $("#trivia-question").prepend("<br><hr>" + triviaGame.question);
+        $("#trivia-answer1").prepend("<br><hr>");
+        $("#trivia-answer2").prepend("<br><hr>") //+ triviaGame.incorrectAnswer);
+        $("#trivia-answer3").prepend("<br><hr>") //+ triviaGame.incorrectAnswer2);
+        $("#trivia-answer4").prepend("<br><hr>") //+ triviaGame.incorrectAnswer3);
 
  for (var i = 0; i < 2; i++) {
 // Then dynamically generating buttons for each item in the array
@@ -106,15 +104,30 @@ $("#answer-button").on("click", function() {
           score + 10; 
           console.log(score)
         //   if correctAnswer.OnClick = true;{ score ++
-          $("#score").append(score);
-        });
-      
-         });
- 
+            $("#score").append(score);
 
-});
-       
+            $(document).ready(function(){
+            $("#answer-button1").on("click", function() {
+              $("#trivia-question").append("incorrect, press for next question")
+              console.log("incorrectAnswer")
+            });
+              $(document).ready(function(){
+            $("#answer-button2").on("click", function(){
+              $("#trivia-question").append("incorrect, press for next question")
+              console.log("incorrectAnswer")
+            });
+              $(document).ready(function(){
+            $("#answer-button3").on("click", function() {
+              $("#trivia-question").append("incorrect, press for next question")
+              console.log("incorrectAnswer")
+            });
+          });
         });
+      });        
+        });
+      });
+});
+ });
    
 
     </script>
