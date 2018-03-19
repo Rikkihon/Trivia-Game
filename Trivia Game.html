@@ -26,20 +26,24 @@
     <!-- Here we have the div where our questions will go called random-number -->
     <h1 class="text-center" id="trivia-question"></h1>
     <h2 class="text-center" id="trivia-answer"></h2>
-    <h2 class="text-center" id="Score">Your Score</h2>
+    <h2 class="text-center" id="trivia-answer1"></h2>
+    <h2 class="text-center" id="trivia-answer2"></h2>
+    <h2 class="text-center" id="trivia-answer3"></h2>
+    <h2 class="text-center" id="Score">Your Score: </h2>
     <h2 class="text-center" id="time-left">Your Timer Begins Now. You have 3 minutes to complete</h2>
     <script type="text/javascript">
       
     // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
     $(document).ready(function() {
-      
+    
       // When random-button is clicked...
       $("#start-button").on("click", function() {
         // ...create a string which will hold the trivia question.
         var triviaGame = "";
         var question = "";
         var arrayofQuestions = [];
-
+        var score = 0;
+        console.log(score);
         setTimeout(timeUp, 180 * 1000); // 3 minutes
         
         function timeUp () {
@@ -50,7 +54,7 @@ arrayofQuestions.push({question:"Who Invented Taxnomic Nomenclature ?", correctA
 arrayofQuestions.push({question: "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", correctAnswer:"Oscar Wilde", incorrectAnswer:"James Joyce",  incorrectAnswer2:"Jonathan Swift",  incorrectAnswer3:"Samuel L Beckett"})
 arrayofQuestions.push({question: "How many book 'point of view' chapters does Tyrion from A Song of Ice and Fire Have? ", correctAnswer: "38", incorrectAnswer: "0", incorrectAnswer2:"10", incorrectAnswer3: "30"})
 arrayofQuestions.push({question: "On Which South Pacific country is there a Pearl Museum, devoted entirely to pearls?", correctAnswer:"Tahiti", incorrectAnswer: "Hawaii", incorrectAnswer2:"Indonesia", incorrectAnswer3: "Maldives"})
-arrayofQuestions.push({question: "The Hawaiian Islands had a different name given to them by James Cook. He named them after an Earl in the British Navy. What were the islands originally named?", correctAnswer: "Hawaiian Islands", incorrectAnswer: "Nippon", incorrectAnswer2: "Marshall Islands", incorrctAnswer3: "Philippines"});         
+arrayofQuestions.push({question: "The Hawaiian Islands had a different name given to them by James Cook. He named them after an Earl in the British Navy. What were the islands originally named?", correctAnswer: "Hawaiian Islands", incorrectAnswer: "Nippon", incorrectAnswer2: "Marshall Islands", incorrectAnswer3: "Philippines"});         
 arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which modern-day country?", correctAnswer:"Nepal", incorrectAnswer:"Tibet", incorrectAnswer2:"India", incorrectAnswer3:"Japan"});
         // This will randomly pick a question
           triviaGame = arrayofQuestions[Math.floor(Math.random() * arrayofQuestions.length)];
@@ -59,39 +63,51 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
         // Then prepend the trivia question to the top of our display answer div.
     
         $("#trivia-question").prepend("<br><button></button><hr>" + triviaGame.question);
-        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.correctAnswer);
-        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer);
-        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer2);
-        $("#trivia-answer").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer3);
+        $("#trivia-answer1").prepend("<br><button></button><hr>" + triviaGame.correctAnswer);
+        $("#trivia-answer2").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer);
+        $("#trivia-answer3").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer2);
+        $("#trivia-answer4").prepend("<br><button></button><hr>" + triviaGame.incorrectAnswer3);
 
-        // When random-button is clicked...
 // $("#answer-button").on("click", function() {}
 
- for (var i = 0; i <= arrayofQuestions.length; i++) {
+ for (var i = 0; i < 4; i++) {
 // Then dynamically generating buttons for each item in the array
 // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
 var answerButton = $("<button>");
-// Adding a class of movie to our button
+// Adding a class to button
 answerButton.addClass("btn btn-primary btn-sm");
-// Adding a span
-answerButton.html('<span class="glyphicon glyphicon-question-sign"></span>');
+answerButton.attr('id', 'answer-button');
+
+answerButton.html(triviaGame.correctAnswer);
+answerButton.html(triviaGame.incorrectAnswer);
+answerButton.html(triviaGame.incorrectAnswer1);
+answerButton.html(triviaGame.incorrectAnswer2);
+answerButton.html(triviaGame.incorrectAnswer3);
+}
 // Providing the initial button text
 // Adding the button to the buttons-view div
-$("#trivia-answer").append(answerButton);
+$("#trivia-answer").prepend(answerButton);
+$("#trivia-answer1").prepend(answerButton);
+$("#trivia-answer2").prepend(answerButton);
+$("#trivia-answer3").prepend(answerButton);
 
-$("#trivia-answer").on("click", function() {
+
+$(document).ready(function() {
+$("#answer-button").on("click", function() {
           var score = 0;
           score + 10; 
+          console.log(score)
         //   if correctAnswer.OnClick = true;{ score ++
           $("#score").append(score);
-        
+        });
+      
          });
+ 
 
-}
 });
        
         });
-    // });
+   
 
     </script>
 
