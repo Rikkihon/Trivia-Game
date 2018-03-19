@@ -17,20 +17,21 @@
     <div class="jumbotron">
       <h1 class="text-center">Let's Play Trivia!</h1>
       <div class="text-center">
-        <!-- Here we have our button with id random-button -->
+          <h2 class="text-center" id="Score">Your Score: </h2>
+        <!-- Here we have our button with id start- button -->
         <button class="btn btn-primary btn-lg" id="start-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>Start!</button>
-
+        
       </div>
 
     </div>
-    <!-- Here we have the div where our questions will go called random-number -->
+    <!-- Here we have the div where our questions will go called trivia question -->
     <h1 class="text-center" id="trivia-question"></h1>
     <h2 class="text-center" id="trivia-answer"></h2>
     <h2 class="text-center" id="trivia-answer1"></h2>
     <h2 class="text-center" id="trivia-answer2"></h2>
     <h2 class="text-center" id="trivia-answer3"></h2>
-    <h2 class="text-center" id="Score">Your Score: </h2>
     <h2 class="text-center" id="time-left">Your Timer Begins Now. You have 3 minutes to complete</h2>
+  </div>
     <script type="text/javascript">
       
     // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
@@ -70,19 +71,28 @@ arrayofQuestions.push({question: "The book 'Siddhartha' takes place in which mod
 
 // $("#answer-button").on("click", function() {}
 
- for (var i = 0; i < 4; i++) {
+ for (var i = 0; i < 2; i++) {
 // Then dynamically generating buttons for each item in the array
 // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
 var answerButton = $("<button>");
+var answerButton1 = $("<button>");
+var answerButton2 = $("<button>");
+var answerButton3 = $("<button>");
 // Adding a class to button
 answerButton.addClass("btn btn-primary btn-sm");
 answerButton.attr('id', 'answer-button');
+answerButton1.addClass("btn btn-primary btn-sm");
+answerButton1.attr('id', 'answer-button');
+answerButton2.addClass("btn btn-primary btn-sm");
+answerButton2.attr('id', 'answer-button');
+answerButton3.addClass("btn btn-primary btn-sm");
+answerButton3.attr('id', 'answer-button');
 
 answerButton.html(triviaGame.correctAnswer);
 answerButton.html(triviaGame.incorrectAnswer);
-answerButton.html(triviaGame.incorrectAnswer1);
-answerButton.html(triviaGame.incorrectAnswer2);
-answerButton.html(triviaGame.incorrectAnswer3);
+answerButton1.html(triviaGame.incorrectAnswer1);
+answerButton2.html(triviaGame.incorrectAnswer2);
+answerButton3.html(triviaGame.incorrectAnswer3);
 }
 // Providing the initial button text
 // Adding the button to the buttons-view div
@@ -90,7 +100,6 @@ $("#trivia-answer").prepend(answerButton);
 $("#trivia-answer1").prepend(answerButton);
 $("#trivia-answer2").prepend(answerButton);
 $("#trivia-answer3").prepend(answerButton);
-
 
 $(document).ready(function() {
 $("#answer-button").on("click", function() {
