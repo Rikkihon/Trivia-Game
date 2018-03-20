@@ -1,5 +1,6 @@
 "use strict"
 var score = 0;
+var counter = 0;
 // jQuery Ready Function waits for the document to complete loading before initiating JavaScript
 $(document).ready(function () {
     // When start-button is clicked...
@@ -7,16 +8,12 @@ $(document).ready(function () {
     function timeUp() {
         $("#time-left").append("<h2>Timer Has Ended</h2>");
         $("#answer-button").on("click", function () {
-            console.log(score) //this is the console log 
-            //   if correctAnswer.OnClick = true;{ score ++
-            $("#score").append("You get 10 points for each correct answer" + score);
-            $("#NumberofQuestions").append("You have answered" + arrayofQuestions.length);
             newQuestion();
         });
     };
 
     $("#start-button").on("click", function () {
-        console.log("Start!");
+        $("#score").append("You get 10 points for each correct answer" + score);
         newQuestion();
         setTimeout(timeUp, 180 * 1000); // 3 minutes
     });
@@ -29,25 +26,22 @@ $(document).ready(function () {
 
         $("#buttons").on("click", ".correct-answer", function () {
             score += 10;
-           
+            counter ++;
+            $("#NumberofQuestions").text("You have answered" +counter+ "questions");
+
 
             $("#Score").text(score);
-           // (display the correct answer)
+            // (display the correct answer)
             newQuestion()
         });
 
         $("#buttons").on("click", ".answer-button", function () {
             $("#trivia-question").html('<h3>"incorrect, press for next question"</h3>')
-            console.log("incorrectAnswer");
-            //display incorrect answer
+            counter ++;
             newQuestion();
         });
 
-        arrayofQuestions.push({
-            question: "Who Invented Taxnomic Nomenclature ?", correctAnswer: "Linneaus", incorrectAnswers: [
-                "Darwin", "Mendel", "Lueck"
-            ]
-        });
+        arrayofQuestions.push({ question: "Who Invented Taxnomic Nomenclature ?", correctAnswer: "Linneaus", incorrectAnswer: ["Darwin", "Mendel", "Lueck"] });
         arrayofQuestions.push({ question: "Which Irish Author stated: We are all in the gutter, but some of us are looking at the stars? ", correctAnswer: "Oscar Wilde", incorrectAnswer: ["James Joyce", "Jonathan Swift", "Samuel L Beckett"] });
         arrayofQuestions.push({ question: "How many book 'point of view' chapters does Tyrion from A Song of Ice and Fire Have? ", correctAnswer: "38", incorrectAnswer: ["0", "10", "30"] });
         arrayofQuestions.push({ question: "On Which South Pacific country is there a Pearl Museum, devoted entirely to pearls?", correctAnswer: "Tahiti", incorrectAnswer: ["Hawaii", "Indonesia", "Maldives"] });
@@ -58,7 +52,7 @@ $(document).ready(function () {
         arrayofQuestions.push({ question: "Where was Virginia Woolf born?", correctAnswer: "Kensington, London", incorrectAnswer: ["Scotland", "Wales", "Ireland"] })
         // This will randomly pick a question
         triviaGame = arrayofQuestions[Math.floor(Math.random() * arrayofQuestions.length)];
-        console.log(triviaGame);
+         
 
         arrayofQuestions[0].correctAnswer
         // Then prepend the trivia question to the top of our display answer div.
@@ -91,6 +85,7 @@ $(document).ready(function () {
 
             // Adding the button to the buttons-view div
             $("#trivia-answer" + i).html(answerButton);
+    
         }
 
     };
