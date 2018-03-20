@@ -9,7 +9,8 @@ $(document).ready(function () {
         $("#answer-button").on("click", function () {
             console.log(score) //this is the console log 
             //   if correctAnswer.OnClick = true;{ score ++
-            $("#score").append(score);
+            $("#score").append("You get 10 points for each correct answer" + score);
+            $("#NumberofQuestions").append("You have answered" + arrayofQuestions.length);
             newQuestion();
         });
     };
@@ -28,9 +29,8 @@ $(document).ready(function () {
 
         $("#buttons").on("click", ".correct-answer", function () {
             score += 10;
-            console.log("Result variable:")
-            console.log(score) //this is the console log 
-            //   if correctAnswer.OnClick = true;{ score ++
+           
+
             $("#Score").text(score);
            // (display the correct answer)
             newQuestion()
