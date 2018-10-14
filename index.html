@@ -20,8 +20,20 @@
           <h2 class="text-center" id="Score">Your Score: </h2>
           <h2 class="text-center" id="NumberofQuestions"> Number of Questions: </h2>
           <h2 class="text-center" id="time-left">Your Timer Begins when you click start below. You have 3 minutes to complete</h2>
+          <div id="display">00:00</div>
+
+          <!-- Div containing our stopwatch controls -->
+          <div id="buttons">
+
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+    
+          </div>
+  
+      
+          
         <!-- Here we have our button with id start- button -->
-        <button class="btn btn-primary btn-lg" id="start-button"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>Start!</button>
+        <button class="btn btn-primary btn-lg" id="start"><h1><span class="glyphicon glyphicon-question-sign"></span></h1>Start!</button>
         
       </div>
 
@@ -37,8 +49,13 @@
   </div>
   </div>
     
-    <script src="./javascript/app.js"></script>
+
+  <div id="wrapper">
+
   
+
+    <script src="./javascript/app.js"></script>
+    <script type="text/javascript" src="./javascript/stopwatch.js"></script>  
 
   </body>
 
