@@ -14,6 +14,7 @@ $(document).ready(function () {
 
     $("#start-button").on("click", function () {
         $("#score").append("You get 10 points for each correct answer" + score);
+        $("#NumberofQuestions").text("You have answered " +counter+ " questions");
         newQuestion();
         setTimeout(timeUp, 180 * 1000); // 3 minutes
     });
@@ -27,7 +28,7 @@ $(document).ready(function () {
         $("#buttons").on("click", ".correct-answer", function () {
             score += 10;
             counter ++;
-            $("#NumberofQuestions").text("You have answered" +counter+ "questions");
+            $("#NumberofQuestions").text("You have answered " +counter+ " questions");
 
 
             $("#Score").text(score);
@@ -38,6 +39,7 @@ $(document).ready(function () {
         $("#buttons").on("click", ".answer-button", function () {
             $("#trivia-question").html('<h3>"incorrect, press for next question"</h3>')
             counter ++;
+            $("#NumberofQuestions").text("You have answered " +counter+ " questions");
             newQuestion();
         });
 
@@ -59,9 +61,9 @@ $(document).ready(function () {
 
         $("#trivia-question").html("<br><hr>" + triviaGame.question);
         $("#trivia-answer1").prepend("<br><hr>");
-        $("#trivia-answer2").prepend("<br><hr>") //+ triviaGame.incorrectAnswer);
-        $("#trivia-answer3").prepend("<br><hr>") //+ triviaGame.incorrectAnswer2);
-        $("#trivia-answer4").prepend("<br><hr>") //+ triviaGame.incorrectAnswer3);
+        $("#trivia-answer2").prepend("<br><hr>") 
+        $("#trivia-answer3").prepend("<br><hr>")  
+        $("#trivia-answer4").prepend("<br><hr>") 
 
         for (var i = 0; i <= 3; i++) {
             // Then dynamically generating buttons for each item in the array
